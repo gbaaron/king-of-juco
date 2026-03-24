@@ -1,0 +1,9 @@
+ProductName,Description,Price,ThumbnailURL,ImageURLs,Category,Sizes,StockQuantity,IsLimitedDrop,DropStartTime,DropEndTime,IsActive,LinkedVideoURL,SortOrder
+The Origin Hoodie,"Premium heavyweight hoodie celebrating the JUCO journey. Embroidered KJ logo on front, ""The Journey Continues"" on the back. 400 GSM cotton blend.",59.99,,,limited_edition,"S,M,L,XL,2XL",500,true,2026-03-22,2026-03-29,true,,1
+Bat Flip Tee,"The iconic bat flip moment immortalized on a premium tee. Screen-printed graphic on front, KOJ logo on sleeve.",34.99,,,limited_edition,"S,M,L,XL,2XL",300,true,2026-03-22,2026-03-29,true,,2
+King of Juco Cap,"Structured snapback with embroidered KJ crown logo. Adjustable snap closure. One size fits most.",29.99,,,hats,"One_Size",200,false,,,true,,3
+JUCO Walk-On Tee,"Vintage wash tee with ""Walk-On"" graphic. Soft ring-spun cotton. The shirt that started it all.",29.99,,,apparel,"S,M,L,XL,2XL",150,false,,,true,,4
+Diamond Chain,"Stainless steel baseball diamond pendant on 24"" chain. Gold-tone finish. Comes in branded box.",49.99,,,accessories,"One_Size",75,false,,,true,,5
+First Edition Hoodie,"The original King of Juco hoodie from the first-ever merch drop. Sold out in 4 hours. Collector's item.",54.99,,,apparel,"S,M,L,XL,2XL",0,false,,,true,,6
+Underdog Shorts,"Athletic mesh shorts with KJ logo. Side pockets, drawstring waist. Perfect for the cage or the couch.",39.99,,,apparel,"S,M,L,XL",120,false,,,true,,7
+KOJ Dad Hat,"Unstructured low-profile dad hat with embroidered KOJ text. Washed cotton twill.",24.99,,,hats,"One_Size",180,false,,,true,,8

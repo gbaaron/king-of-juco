@@ -1,0 +1,9 @@
+OrderID,User,Product,Size,Quantity,TotalPrice,Status,ShippingName,ShippingAddress,ShippingEmail,OrderedAt
+KOJ-1710950400-a1b2,jake@example.com,The Origin Hoodie,L,1,59.99,shipped,Jake Martinez,"123 Main St, Apt 4B, New York NY 10001",jake@example.com,2026-03-20
+KOJ-1710950401-c3d4,sarah@example.com,Bat Flip Tee,M,2,69.98,confirmed,Sarah Chen,"456 Oak Ave, Los Angeles CA 90001",sarah@example.com,2026-03-20
+KOJ-1710950402-e5f6,alex@example.com,The Origin Hoodie,XL,1,59.99,shipped,Alex Williams,"789 Pine Rd, Philadelphia PA 19101",alex@example.com,2026-03-19
+KOJ-1710950403-g7h8,mike@example.com,King of Juco Cap,One_Size,1,29.99,delivered,Mike Thompson,"321 Elm St, Houston TX 77001",mike@example.com,2026-03-15
+KOJ-1710950404-i9j0,tyler@example.com,JUCO Walk-On Tee,L,1,29.99,delivered,Tyler Brown,"654 Birch Ln, San Diego CA 92101",tyler@example.com,2026-03-14
+KOJ-1710950405-k1l2,ryan@example.com,Diamond Chain,One_Size,1,49.99,confirmed,Ryan Garcia,"987 Cedar Dr, Phoenix AZ 85001",ryan@example.com,2026-03-21
+KOJ-1710950406-m3n4,emma@example.com,Bat Flip Tee,S,1,34.99,pending,Emma Rodriguez,"147 Maple Way, Atlanta GA 30301",emma@example.com,2026-03-23
+KOJ-1710950407-o5p6,noah@example.com,The Origin Hoodie,M,1,59.99,pending,Noah Davis,"258 Willow Ct, Seattle WA 98101",noah@example.com,2026-03-24

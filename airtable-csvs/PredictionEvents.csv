@@ -1,0 +1,8 @@
+EventName,Description,Season,EventType,Status,OpensAt,LocksAt,CorrectAnswer,PointsPerCorrect
+2026 AL East Win Totals,"Predict the final win total for any AL East team. Closest to actual wins takes the points.",2026,win_total,open,2026-03-15,2026-04-01,,20
+2026 AL MVP,"Who takes home the 2026 American League Most Valuable Player award? Make your pick before the season starts.",2026,mvp,open,2026-03-15,2026-04-15,,50
+2026 World Series Champion,"Call the 2026 World Series winner before Opening Day. The ultimate prediction.",2026,world_series,locked,2026-03-01,2026-03-20,,100
+2025 AL Home Run Leader,"Who led the American League in home runs in the 2025 season?",2025,custom,resolved,2025-09-01,2025-09-15,Aaron Judge,25
+2026 NL Cy Young,"Predict who wins the 2026 National League Cy Young Award.",2026,cy_young,open,2026-03-15,2026-04-15,,50
+2026 AL Rookie of the Year,"Which rookie will take home AL Rookie of the Year honors?",2026,rookie,open,2026-03-15,2026-05-01,,40
+2025 World Series Champion,"Who won the 2025 World Series?",2025,world_series,resolved,2025-03-01,2025-03-20,Los Angeles Dodgers,100

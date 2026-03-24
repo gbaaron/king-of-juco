@@ -1,0 +1,16 @@
+Email,Name,Username,PasswordHash,MembershipTier,FavoriteTeam,Points,MemberSince,IsAdmin,LastLogin
+eric@kingofjuco.com,Eric Sim,KingOfJuco,$2a$10$fakehash1234567890abcdef,mvp,San Diego Padres,9999,2026-01-01,true,2026-03-24
+admin@kingofjuco.com,Team Admin,KOJAdmin,$2a$10$fakehash1234567890abcdef,mvp,San Diego Padres,500,2026-01-01,true,2026-03-24
+jake@example.com,Jake Martinez,BaseballBrainiac,$2a$10$fakehash1234567890abcdef,mvp,New York Yankees,1240,2026-01-15,false,2026-03-23
+sarah@example.com,Sarah Chen,DiamondDave,$2a$10$fakehash1234567890abcdef,mvp,Los Angeles Dodgers,1180,2026-01-18,false,2026-03-22
+mike@example.com,Mike Thompson,JucoLegend,$2a$10$fakehash1234567890abcdef,free,Houston Astros,1055,2026-01-22,false,2026-03-21
+emma@example.com,Emma Rodriguez,StatGuru42,$2a$10$fakehash1234567890abcdef,free,Atlanta Braves,980,2026-02-01,false,2026-03-20
+chris@example.com,Chris Park,CrackerJack,$2a$10$fakehash1234567890abcdef,free,Boston Red Sox,925,2026-02-05,false,2026-03-19
+alex@example.com,Alex Williams,PowerHitter99,$2a$10$fakehash1234567890abcdef,mvp,Philadelphia Phillies,870,2026-02-10,false,2026-03-18
+jordan@example.com,Jordan Lee,FastFeet42,$2a$10$fakehash1234567890abcdef,free,Chicago Cubs,810,2026-02-14,false,2026-03-17
+tyler@example.com,Tyler Brown,BatFlipKing,$2a$10$fakehash1234567890abcdef,free,San Diego Padres,755,2026-02-20,false,2026-03-16
+maya@example.com,Maya Patel,MusicMan,$2a$10$fakehash1234567890abcdef,free,Toronto Blue Jays,690,2026-02-25,false,2026-03-15
+noah@example.com,Noah Davis,FuturePro15,$2a$10$fakehash1234567890abcdef,free,Seattle Mariners,620,2026-03-01,false,2026-03-14
+lily@example.com,Lily Kim,BaseballBri,$2a$10$fakehash1234567890abcdef,free,San Francisco Giants,540,2026-03-05,false,2026-03-13
+ryan@example.com,Ryan Garcia,JucoFan99,$2a$10$fakehash1234567890abcdef,mvp,Arizona Diamondbacks,480,2026-03-08,false,2026-03-12
+sam@example.com,Sam Wilson,HighlightReel,$2a$10$fakehash1234567890abcdef,free,Texas Rangers,410,2026-03-10,false,2026-03-11

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | King of Juco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--color-bg-primary:#0a0a0f;--color-bg-card:#1a1a24;--color-bg-elevated:#22222e;--color-accent-primary:#e84033;--color-accent-secondary:#f5a623;--color-text-primary:#fff;--color-text-secondary:#a0a0b0;--color-text-muted:#5a5a6e;--color-success:#22c55e;--color-error:#ef4444;--color-border:#2a2a38;--font-display:'Bebas Neue',sans-serif;--font-body:'Inter',-apple-system,sans-serif}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}body{font-family:var(--font-body);background:var(--color-bg-primary);color:var(--color-text-secondary);line-height:1.6}a{text-decoration:none;color:inherit}button{cursor:pointer;border:none;background:none;font-family:inherit}
+    .site-header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:0 40px;height:72px;display:flex;justify-content:space-between;align-items:center;background:rgba(10,10,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--color-border)}.header-logo{display:flex;align-items:center;gap:12px}.header-logo-icon{width:40px;height:40px;background:var(--color-accent-primary);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:18px;color:#fff}.header-logo-text{font-family:var(--font-display);font-size:22px;color:var(--color-text-primary);letter-spacing:2px;text-transform:uppercase}
+    .admin-page{padding:96px 24px 80px;max-width:1200px;margin:0 auto}
+    .admin-title{font-family:var(--font-display);font-size:36px;color:var(--color-text-primary);letter-spacing:2px;display:flex;align-items:center;gap:12px;margin-bottom:32px}.admin-badge{padding:4px 12px;background:var(--color-accent-primary);font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#fff}
+    .tabs{display:flex;gap:0;border-bottom:1px solid var(--color-border);margin-bottom:32px;overflow-x:auto}.tab-btn{padding:12px 20px;font-size:12px;font-weight:500;color:var(--color-text-muted);letter-spacing:.5px;border-bottom:2px solid transparent;transition:all .3s;white-space:nowrap}.tab-btn:hover{color:var(--color-text-secondary)}.tab-btn.active{color:var(--color-text-primary);border-bottom-color:var(--color-accent-primary)}
+    .tab-content{display:none}.tab-content.active{display:block}
+    .admin-card{background:var(--color-bg-card);border:1px solid var(--color-border);padding:24px;margin-bottom:16px}
+    .admin-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}.admin-card-title{font-family:var(--font-display);font-size:20px;color:var(--color-text-primary);letter-spacing:1px}.admin-card-id{font-size:11px;color:var(--color-text-muted);font-family:monospace}
+    .admin-field{font-size:13px;color:var(--color-text-secondary);margin-bottom:4px}.admin-field strong{color:var(--color-text-primary)}
+    .admin-actions{display:flex;gap:8px;margin-top:12px}
+    .btn-approve{padding:8px 16px;background:rgba(34,197,94,.15);color:var(--color-success);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(34,197,94,.3);transition:all .3s}.btn-approve:hover{background:rgba(34,197,94,.25)}
+    .btn-reject{padding:8px 16px;background:rgba(239,68,68,.15);color:var(--color-error);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(239,68,68,.3);transition:all .3s}.btn-reject:hover{background:rgba(239,68,68,.25)}
+    .btn-feature{padding:8px 16px;background:rgba(245,166,35,.15);color:var(--color-accent-secondary);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(245,166,35,.3)}
+    .btn-action{padding:8px 16px;background:rgba(59,130,246,.15);color:#3b82f6;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border:1px solid rgba(59,130,246,.3)}
+    .stat-row{display:flex;gap:24px;margin-bottom:32px}.stat-box{background:var(--color-bg-card);border:1px solid var(--color-border);padding:20px;flex:1;text-align:center}.stat-value{font-family:var(--font-display);font-size:28px;color:var(--color-text-primary)}.stat-label{font-size:11px;color:var(--color-text-muted);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+    .loading{text-align:center;padding:40px;color:var(--color-text-muted)}
+    .empty{text-align:center;padding:40px;color:var(--color-text-muted);font-size:14px}
+    .form-group{margin-bottom:16px}.form-label{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--color-text-secondary);margin-bottom:8px}.form-input,.form-textarea,.form-select{width:100%;padding:10px 14px;background:var(--color-bg-primary);border:1px solid var(--color-border);color:var(--color-text-primary);font-family:var(--font-body);font-size:13px;outline:none}.form-input:focus,.form-textarea:focus{border-color:var(--color-accent-primary)}.form-textarea{height:80px;resize:vertical}.form-select{appearance:auto}
+    .btn-submit{padding:10px 24px;background:var(--color-accent-primary);color:#fff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;border:none}
+    .export-btn{padding:10px 20px;background:var(--color-bg-elevated);border:1px solid var(--color-border);color:var(--color-text-secondary);font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;transition:all .3s}.export-btn:hover{border-color:var(--color-accent-primary);color:var(--color-accent-primary)}
+    @media(max-width:768px){.site-header{padding:0 20px}.stat-row{flex-direction:column}.tabs{flex-wrap:nowrap}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><a href="/" class="header-logo"><div class="header-logo-icon">KJ</div><div class="header-logo-text">King of Juco</div></a></header>
+  <main class="admin-page">
+    <h1 class="admin-title">Admin Panel <span class="admin-badge">Admin</span></h1>
+    <div class="stat-row" id="stats"><div class="stat-box"><div class="stat-value" id="statChallenges">--</div><div class="stat-label">Pending Challenges</div></div><div class="stat-box"><div class="stat-value" id="statQuestions">--</div><div class="stat-label">Pending Questions</div></div><div class="stat-box"><div class="stat-value" id="statSubs">--</div><div class="stat-label">Subscribers</div></div></div>
+    <div class="tabs"><button class="tab-btn active" data-tab="challenges">Challenges</button><button class="tab-btn" data-tab="questions">Q&A</button><button class="tab-btn" data-tab="content">Content</button><button class="tab-btn" data-tab="predictions">Predictions</button><button class="tab-btn" data-tab="orders">Orders</button><button class="tab-btn" data-tab="timeline">Timeline</button><button class="tab-btn" data-tab="subscribers">Subscribers</button></div>
+    <div class="tab-content active" id="tab-challenges"><div class="loading">Loading...</div></div>
+    <div class="tab-content" id="tab-questions"><div class="loading">Loading...</div></div>
+    <div class="tab-content" id="tab-content"><div class="loading">Loading...</div></div>
+    <div class="tab-content" id="tab-predictions"><div class="loading">Loading...</div></div>
+    <div class="tab-content" id="tab-orders"><div class="loading">Loading...</div></div>
+    <div class="tab-content" id="tab-timeline"><div class="loading">Loading...</div></div>
+    <div class="tab-content" id="tab-subscribers"><div class="loading">Loading...</div></div>
+  </main>
+  <script>
+    const token=localStorage.getItem('koj_token');
+    const isAdmin=localStorage.getItem('koj_isAdmin');
+    if(!token||isAdmin!=='true'){window.location.href='/';throw new Error('Not admin')}
+    const headers={'Content-Type':'application/json','Authorization':'Bearer '+token};
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById('tab-'+btn.dataset.tab).classList.add('active');loadTab(btn.dataset.tab)})});
+
+    async function adminFetch(type){
+      try{const r=await fetch(`/.netlify/functions/admin-get-submissions?type=${type}`,{headers});if(!r.ok)return[];const d=await r.json();return d.records||[]}catch(e){return[]}
+    }
+    async function adminUpdate(action,table,recordId,fields){
+      try{const r=await fetch('/.netlify/functions/admin-update',{method:'POST',headers,body:JSON.stringify({action,table,recordId,fields})});return await r.json()}catch(e){return{error:'Network error'}}
+    }
+
+    async function loadTab(tab){
+      const el=document.getElementById('tab-'+tab);
+      el.innerHTML='<div class="loading">Loading...</div>';
+      const records=await adminFetch(tab);
+      if(!records.length){el.innerHTML='<div class="empty">No records found.</div>';return}
+
+      if(tab==='challenges'){
+        el.innerHTML=records.map(r=>`<div class="admin-card"><div class="admin-card-header"><div class="admin-card-title">${r.fields.Title||'Untitled'}</div><div class="admin-card-id">${r.id}</div></div><div class="admin-field"><strong>By:</strong> ${r.fields.SubmitterName||'?'}</div><div class="admin-field"><strong>Video:</strong> ${r.fields.VideoURL||'N/A'}</div><div class="admin-field"><strong>Category:</strong> ${r.fields.Category||'?'}</div><div class="admin-field"><strong>Status:</strong> ${r.fields.Status||'?'}</div><div class="admin-actions"><button class="btn-approve" onclick="updateRecord('Challenges','${r.id}',{Status:'approved'})">Approve</button><button class="btn-reject" onclick="updateRecord('Challenges','${r.id}',{Status:'rejected'})">Reject</button><button class="btn-feature" onclick="updateRecord('Challenges','${r.id}',{Status:'featured'})">Feature</button></div></div>`).join('');
+      } else if(tab==='questions'){
+        el.innerHTML=records.map(r=>`<div class="admin-card"><div class="admin-card-title">${r.fields.QuestionText||'?'}</div><div class="admin-field"><strong>By:</strong> ${r.fields.SubmitterName||'?'} | <strong>Player:</strong> ${r.fields.TargetPlayer||'?'} | <strong>Status:</strong> ${r.fields.Status||'?'}</div><div class="admin-actions"><button class="btn-approve" onclick="updateRecord('Questions','${r.id}',{Status:'approved'})">Approve</button><button class="btn-reject" onclick="updateRecord('Questions','${r.id}',{Status:'rejected'})">Reject</button><button class="btn-action" onclick="markAnswered('${r.id}')">Mark Answered</button></div></div>`).join('');
+      } else if(tab==='subscribers'){
+        const emails=records.map(r=>r.fields.Email).filter(Boolean);
+        el.innerHTML=`<div style="margin-bottom:16px"><strong style="color:var(--color-text-primary)">${emails.length} subscribers</strong> <button class="export-btn" onclick="copyEmails()">Copy All Emails</button></div><div id="emailList">${records.map(r=>`<div class="admin-card" style="padding:12px 24px"><strong style="color:var(--color-text-primary)">${r.fields.Email||''}</strong> <span style="margin-left:8px">${r.fields.Name||''}</span> <span style="margin-left:8px;font-size:11px;color:var(--color-text-muted)">${r.fields.Source||''} - ${r.fields.SubscribedAt||''}</span></div>`).join('')}</div>`;
+        window._emails=emails;
+      } else {
+        el.innerHTML=records.map(r=>{const fields=Object.entries(r.fields).map(([k,v])=>`<div class="admin-field"><strong>${k}:</strong> ${typeof v==='object'?JSON.stringify(v):v}</div>`).join('');return `<div class="admin-card"><div class="admin-card-header"><div class="admin-card-id">${r.id}</div></div>${fields}</div>`}).join('');
+      }
+    }
+
+    async function updateRecord(table,id,fields){
+      const result=await adminUpdate('update',table,id,fields);
+      if(result.success){loadTab(document.querySelector('.tab-btn.active').dataset.tab);loadStats()}
+    }
+    function markAnswered(id){const answer=prompt('Enter the answer text:');if(answer)updateRecord('Questions',id,{Status:'answered',AnswerText:answer})}
+    function copyEmails(){if(window._emails){navigator.clipboard.writeText(window._emails.join(', '));alert('Copied '+window._emails.length+' emails!')}}
+
+    async function loadStats(){
+      const [ch,qu,su]=await Promise.all([adminFetch('challenges'),adminFetch('questions'),adminFetch('subscribers')]);
+      document.getElementById('statChallenges').textContent=ch.length;
+      document.getElementById('statQuestions').textContent=qu.length;
+      document.getElementById('statSubs').textContent=su.length;
+    }
+
+    loadTab('challenges');
+    loadStats();
+  </script>
+</body>
+</html>

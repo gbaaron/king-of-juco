@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "king-of-juco-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd '/Users/Aaron/Desktop/Global Media/Websites Stuff/Active/king_of_juco' && npx netlify dev --port 8888"],
+      "port": 8888
+    }
+  ]
+}

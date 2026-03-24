@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>King of Juco | Eric Sim - Official Fan Hub</title>
+  <meta name="description" content="The official home of Eric Sim, King of Juco. Baseball entertainment, exclusive content, fan challenges, and more. Join 1M+ fans.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg-primary: #0a0a0f;
+      --color-bg-secondary: #12121a;
+      --color-bg-card: #1a1a24;
+      --color-bg-elevated: #22222e;
+      --color-accent-primary: #e84033;
+      --color-accent-secondary: #f5a623;
+      --color-accent-blue: #3b82f6;
+      --color-text-primary: #ffffff;
+      --color-text-secondary: #a0a0b0;
+      --color-text-muted: #5a5a6e;
+      --color-success: #22c55e;
+      --color-error: #ef4444;
+      --color-border: #2a2a38;
+      --color-border-hover: #3a3a4a;
+      --font-display: 'Bebas Neue', sans-serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --radius-sm: 4px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text-secondary);
+      background: var(--color-bg-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ==================== HEADER ==================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0 40px;
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 15, 0.9);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-border);
+      transition: background 0.3s;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .header-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+
+    .header-logo-text {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .header-nav a {
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .header-nav a:hover { color: var(--color-text-primary); }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--color-accent-primary);
+      color: #fff !important;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: #c7352a;
+      box-shadow: 0 0 20px rgba(232, 64, 51, 0.3);
+    }
+
+    .nav-auth { display: flex; align-items: center; gap: 16px; }
+    .nav-auth a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-secondary);
+      transition: color 0.3s;
+    }
+    .nav-auth a:hover { color: var(--color-text-primary); }
+    .nav-auth .auth-signup {
+      padding: 8px 20px;
+      border: 1px solid var(--color-accent-primary);
+      color: var(--color-accent-primary) !important;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+    .nav-auth .auth-signup:hover {
+      background: var(--color-accent-primary);
+      color: #fff !important;
+    }
+
+    /* Mobile menu */
+    .mobile-menu-toggle {
+      display: none;
+      padding: 8px;
+      z-index: 1100;
+    }
+    .mobile-menu-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text-primary);
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 15, 0.97);
+      z-index: 1050;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .mobile-nav-overlay.active { display: flex; }
+    .mobile-nav-overlay a {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--color-text-primary);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .mobile-nav-overlay a:hover { color: var(--color-accent-primary); }
+
+    /* ==================== UTILITIES ==================== */
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--color-accent-secondary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 56px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--color-accent-primary);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid var(--color-accent-primary);
+      transition: all 0.3s;
+    }
+    .btn-primary:hover {
+      background: transparent;
+      color: var(--color-accent-primary);
+      box-shadow: 0 0 20px rgba(232, 64, 51, 0.3);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 14px 36px;
+      background: transparent;
+      color: var(--color-text-primary);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--color-border);
+      transition: all 0.3s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--color-text-primary);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: var(--radius-sm);
+    }
+    .badge-mvp { background: var(--color-accent-secondary); color: #000; }
+    .badge-free { background: var(--color-bg-elevated); color: var(--color-text-secondary); border: 1px solid var(--color-border); }
+    .badge-live { background: var(--color-accent-primary); color: #fff; }
+    .badge-new { background: var(--color-accent-blue); color: #fff; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 120px 24px 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(232, 64, 51, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(245, 166, 35, 0.08) 0%, transparent 40%),
+        var(--color-bg-primary);
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      background: rgba(232, 64, 51, 0.15);
+      border: 1px solid rgba(232, 64, 51, 0.3);
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent-primary);
+      border-radius: 50%;
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-badge-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-accent-primary);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 120px;
+      color: var(--color-text-primary);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      line-height: 0.9;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
+      display: block;
+      font-size: 40px;
+      letter-spacing: 8px;
+      color: var(--color-accent-secondary);
+      margin-top: 8px;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      padding-top: 48px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--color-text-primary);
+      letter-spacing: 1px;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* ==================== EMAIL CAPTURE ==================== */
+    .email-capture {
+      background: var(--color-bg-secondary);
+      padding: 64px 24px;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .email-capture-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .email-capture h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .email-capture p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .email-form {
+      display: flex;
+      gap: 0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .email-form input[type="email"] {
+      flex: 1;
+      padding: 14px 20px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-right: none;
+      color: var(--color-text-primary);
+      font-family: var(--font-body);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .email-form input[type="email"]:focus {
+      border-color: var(--color-accent-primary);
+    }
+
+    .email-form input[type="email"]::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .email-form button {
+      padding: 14px 28px;
+      background: var(--color-accent-primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid var(--color-accent-primary);
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+
+    .email-form button:hover {
+      background: #c7352a;
+    }
+
+    .email-form-message {
+      margin-top: 12px;
+      font-size: 13px;
+      display: none;
+    }
+    .email-form-message.success { color: var(--color-success); display: block; }
+    .email-form-message.error { color: var(--color-error); display: block; }
+
+    /* ==================== CONTENT STRIP ==================== */
+    .section {
+      padding: 100px 24px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-header-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-accent-primary);
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+    .section-header-link:hover { color: #c7352a; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .content-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .content-card:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-4px);
+    }
+
+    .content-card-thumb {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      background: var(--color-bg-elevated);
+      overflow: hidden;
+    }
+
+    .content-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-card-thumb-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 15, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .content-card:hover .content-card-thumb-overlay { opacity: 1; }
+
+    .play-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(232, 64, 51, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .play-icon::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 8px 0 8px 14px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 3px;
+    }
+
+    .content-card-body {
+      padding: 20px;
+    }
+
+    .content-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .content-card-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--color-text-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .content-card-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .content-card-lock {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 4px 10px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--color-accent-secondary);
+      border-radius: var(--radius-sm);
+    }
+
+    /* ==================== CHALLENGE SPOTLIGHT ==================== */
+    .challenge-spotlight {
+      background: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .spotlight-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .spotlight-video {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .spotlight-video-placeholder {
+      text-align: center;
+    }
+
+    .spotlight-video-placeholder .play-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 16px;
+    }
+    .spotlight-video-placeholder .play-icon::after {
+      border-width: 10px 0 10px 18px;
+      margin-left: 4px;
+    }
+
+    .spotlight-video-label {
+      font-size: 12px;
+      color: var(--color-text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .spotlight-info h3 {
+      font-family: var(--font-display);
+      font-size: 42px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .spotlight-info p {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .spotlight-stats {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .spotlight-stat-value {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--color-accent-secondary);
+    }
+
+    .spotlight-stat-label {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ==================== Q&A TEASER ==================== */
+    .qna-teaser-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .qna-player-name {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--color-accent-primary);
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .qna-questions-list {
+      list-style: none;
+      margin: 32px 0;
+      text-align: left;
+    }
+
+    .qna-question-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      margin-bottom: 8px;
+      transition: border-color 0.3s;
+    }
+    .qna-question-item:hover { border-color: var(--color-border-hover); }
+
+    .qna-upvote-count {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--color-accent-primary);
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .qna-question-text {
+      flex: 1;
+      font-size: 15px;
+      color: var(--color-text-primary);
+    }
+
+    .qna-question-author {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* ==================== MERCH DROP ==================== */
+    .merch-drop {
+      background: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .merch-drop-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .merch-product-image {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .merch-product-placeholder {
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: var(--color-border);
+      letter-spacing: 4px;
+    }
+
+    .merch-drop-info .section-label { margin-bottom: 16px; }
+
+    .merch-drop-name {
+      font-family: var(--font-display);
+      font-size: 42px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .merch-drop-price {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--color-accent-secondary);
+      margin-bottom: 16px;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .countdown-block {
+      text-align: center;
+    }
+
+    .countdown-value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--color-text-primary);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      padding: 8px 16px;
+      min-width: 64px;
+      display: block;
+    }
+
+    .countdown-label {
+      font-size: 10px;
+      color: var(--color-text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ==================== LEADERBOARD ==================== */
+    .leaderboard-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .leaderboard-table th {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .leaderboard-table td {
+      padding: 16px;
+      border-bottom: 1px solid var(--color-border);
+      font-size: 14px;
+    }
+
+    .leaderboard-table tr:hover td {
+      background: var(--color-bg-card);
+    }
+
+    .leaderboard-rank {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--color-text-primary);
+      width: 48px;
+    }
+
+    .leaderboard-rank.gold { color: var(--color-accent-secondary); }
+    .leaderboard-rank.silver { color: #c0c0c0; }
+    .leaderboard-rank.bronze { color: #cd7f32; }
+
+    .leaderboard-user {
+      color: var(--color-text-primary);
+      font-weight: 500;
+    }
+
+    .leaderboard-points {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--color-accent-primary);
+      text-align: right;
+    }
+
+    /* ==================== STORY TEASER ==================== */
+    .story-teaser-track {
+      display: flex;
+      gap: 24px;
+      overflow-x: auto;
+      padding-bottom: 16px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border) transparent;
+    }
+
+    .story-teaser-track::-webkit-scrollbar { height: 4px; }
+    .story-teaser-track::-webkit-scrollbar-track { background: transparent; }
+    .story-teaser-track::-webkit-scrollbar-thumb { background: var(--color-border); }
+
+    .story-card {
+      flex: 0 0 280px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .story-card:hover {
+      border-color: var(--color-border-hover);
+      transform: translateY(-4px);
+    }
+
+    .story-card-image {
+      width: 100%;
+      height: 160px;
+      background: var(--color-bg-elevated);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .story-card-year {
+      font-family: var(--font-display);
+      font-size: 48px;
+      color: var(--color-border);
+    }
+
+    .story-card-body {
+      padding: 20px;
+    }
+
+    .story-card-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--color-text-primary);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .story-card-desc {
+      font-size: 13px;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    /* ==================== FOOTER ==================== */
+    .site-footer {
+      background: var(--color-bg-secondary);
+      border-top: 1px solid var(--color-border);
+      padding: 80px 24px 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-desc {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      transition: all 0.3s;
+    }
+    .footer-social a:hover {
+      border-color: var(--color-accent-primary);
+      color: var(--color-accent-primary);
+    }
+
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: var(--color-text-primary);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: var(--color-text-muted);
+      margin-bottom: 12px;
+      transition: color 0.3s;
+    }
+    .footer-col a:hover { color: var(--color-text-primary); }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 48px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    .footer-email-form {
+      display: flex;
+      gap: 0;
+    }
+    .footer-email-form input {
+      padding: 10px 16px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-right: none;
+      color: var(--color-text-primary);
+      font-family: var(--font-body);
+      font-size: 13px;
+      outline: none;
+      width: 220px;
+    }
+    .footer-email-form input::placeholder { color: var(--color-text-muted); }
+    .footer-email-form button {
+      padding: 10px 20px;
+      background: var(--color-accent-primary);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid var(--color-accent-primary);
+    }
+
+    /* ==================== FADE ANIMATIONS ==================== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 1024px) {
+      .hero-title { font-size: 80px; }
+      .hero-title span { font-size: 32px; }
+      .content-grid { grid-template-columns: repeat(2, 1fr); }
+      .spotlight-layout { grid-template-columns: 1fr; gap: 40px; }
+      .merch-drop-layout { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .site-header { padding: 0 20px; }
+      .header-nav { display: none; }
+      .mobile-menu-toggle { display: block; }
+      .nav-auth { display: none; }
+
+      .hero { min-height: auto; padding: 140px 20px 80px; }
+      .hero-title { font-size: 56px; }
+      .hero-title span { font-size: 24px; letter-spacing: 4px; }
+      .hero-desc { font-size: 16px; }
+      .hero-stats { flex-direction: column; gap: 24px; }
+
+      .section { padding: 64px 20px; }
+      .section-title { font-size: 36px; }
+      .content-grid { grid-template-columns: 1fr; }
+
+      .email-capture { padding: 48px 20px; }
+      .email-form { flex-direction: column; }
+      .email-form input[type="email"] { border-right: 1px solid var(--color-border); }
+
+      .countdown { gap: 8px; }
+      .countdown-value { font-size: 24px; min-width: 48px; padding: 6px 10px; }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-email-form { width: 100%; }
+      .footer-email-form input { flex: 1; width: auto; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 44px; }
+      .hero-title span { font-size: 18px; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-secondary { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="site-header">
+    <a href="/" class="header-logo">
+      <div class="header-logo-icon">KJ</div>
+      <div class="header-logo-text">King of Juco</div>
+    </a>
+    <nav class="header-nav">
+      <a href="/membership.html">Exclusive</a>
+      <a href="/challenges.html">Challenges</a>
+      <a href="/qna.html">Q&A</a>
+      <a href="/story.html">Story</a>
+      <a href="/merch.html">Merch</a>
+      <a href="/predictions.html">Predictions</a>
+    </nav>
+    <div class="nav-auth" id="navAuth">
+      <a href="/login.html">Sign In</a>
+      <a href="/signup.html" class="auth-signup">Join Free</a>
+    </div>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav-overlay" id="mobileNav">
+    <a href="/membership.html">Exclusive</a>
+    <a href="/challenges.html">Challenges</a>
+    <a href="/qna.html">Q&A</a>
+    <a href="/story.html">Story</a>
+    <a href="/merch.html">Merch</a>
+    <a href="/predictions.html">Predictions</a>
+    <a href="/login.html">Sign In</a>
+    <a href="/signup.html" style="color: var(--color-accent-primary);">Join Free</a>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text">1M+ Subscribers Strong</span>
+      </div>
+      <h1 class="hero-title">
+        King of Juco
+        <span>The Eric Sim Experience</span>
+      </h1>
+      <p class="hero-desc">Baseball entertainment, underdog stories, and a community built different. This is the official home base.</p>
+      <div class="hero-ctas">
+        <a href="/signup.html" class="btn-primary">Join the Team</a>
+        <a href="/story.html" class="btn-secondary">Watch the Story</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-value">1M+</div>
+          <div class="hero-stat-label">Subscribers</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">500+</div>
+          <div class="hero-stat-label">Videos</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">MLB</div>
+          <div class="hero-stat-label">Connections</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EMAIL CAPTURE ==================== -->
+  <section class="email-capture">
+    <div class="email-capture-inner">
+      <div class="section-label">Get Exclusive Access</div>
+      <h2>Join the Inner Circle</h2>
+      <p>Get behind-the-scenes content, early merch drops, and exclusive updates straight to your inbox.</p>
+      <form class="email-form" id="heroEmailForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div class="email-form-message" id="heroEmailMsg"></div>
+    </div>
+  </section>
+
+  <!-- ==================== LATEST EXCLUSIVE CONTENT ==================== -->
+  <section class="section" id="contentSection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <div class="section-label">Exclusive Content</div>
+          <h2 class="section-title">Behind the Scenes</h2>
+        </div>
+        <a href="/membership.html" class="section-header-link">View All &rarr;</a>
+      </div>
+      <div class="content-grid" id="contentGrid">
+        <div class="content-card fade-in">
+          <div class="content-card-thumb">
+            <div class="content-card-thumb-overlay"><div class="play-icon"></div></div>
+            <span class="content-card-lock">MVP</span>
+          </div>
+          <div class="content-card-body">
+            <div class="content-card-meta"><span class="badge badge-mvp">MVP Only</span><span class="badge badge-new">New</span></div>
+            <h3 class="content-card-title">Batting Practice with Tatis Jr.</h3>
+            <p class="content-card-desc">Go behind the scenes as Eric links up with Fernando Tatis Jr. for an epic BP session.</p>
+          </div>
+        </div>
+        <div class="content-card fade-in">
+          <div class="content-card-thumb">
+            <div class="content-card-thumb-overlay"><div class="play-icon"></div></div>
+          </div>
+          <div class="content-card-body">
+            <div class="content-card-meta"><span class="badge badge-free">Free</span></div>
+            <h3 class="content-card-title">The JUCO Workout Routine</h3>
+            <p class="content-card-desc">The exact training program that took Eric from walk-on to internet legend.</p>
+          </div>
+        </div>
+        <div class="content-card fade-in">
+          <div class="content-card-thumb">
+            <div class="content-card-thumb-overlay"><div class="play-icon"></div></div>
+            <span class="content-card-lock">MVP</span>
+          </div>
+          <div class="content-card-body">
+            <div class="content-card-meta"><span class="badge badge-mvp">MVP Only</span></div>
+            <h3 class="content-card-title">Julio Rodriguez Q&A Uncut</h3>
+            <p class="content-card-desc">The full uncut conversation with J-Rod that didn't make it to YouTube.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CHALLENGE SPOTLIGHT ==================== -->
+  <section class="section challenge-spotlight">
+    <div class="container">
+      <div class="spotlight-layout fade-in">
+        <div class="spotlight-video">
+          <div class="spotlight-video-placeholder">
+            <div class="play-icon"></div>
+            <div class="spotlight-video-label">Featured Challenge</div>
+          </div>
+        </div>
+        <div class="spotlight-info">
+          <div class="section-label">Fan Challenge of the Week</div>
+          <h3>Epic Trick Shot from the Dugout</h3>
+          <p>@BaseballKid2025 nailed an insane behind-the-back trick shot that even Eric couldn't believe. Think you can top it?</p>
+          <div class="spotlight-stats">
+            <div>
+              <div class="spotlight-stat-value">2,847</div>
+              <div class="spotlight-stat-label">Votes</div>
+            </div>
+            <div>
+              <div class="spotlight-stat-value">156</div>
+              <div class="spotlight-stat-label">Submissions</div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 12px;">
+            <a href="/challenges.html" class="btn-primary">Submit Yours</a>
+            <a href="/challenges.html" class="btn-secondary">See All</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Q&A TEASER ==================== -->
+  <section class="section" id="qnaSection">
+    <div class="container">
+      <div class="qna-teaser-inner fade-in">
+        <div class="section-label">Ask the Pros</div>
+        <h2 class="section-title">Next Up</h2>
+        <div class="qna-player-name">Fernando Tatis Jr.</div>
+        <p class="section-desc" style="margin: 0 auto 32px;">Submit your questions and upvote the best ones. The top questions get asked on camera.</p>
+        <ul class="qna-questions-list">
+          <li class="qna-question-item">
+            <div class="qna-upvote-count">342</div>
+            <div>
+              <div class="qna-question-text">What's the one pitch you wish you could throw?</div>
+              <div class="qna-question-author">@DiamondDave</div>
+            </div>
+          </li>
+          <li class="qna-question-item">
+            <div class="qna-upvote-count">287</div>
+            <div>
+              <div class="qna-question-text">Who's the toughest pitcher you've ever faced?</div>
+              <div class="qna-question-author">@JucoFan99</div>
+            </div>
+          </li>
+          <li class="qna-question-item">
+            <div class="qna-upvote-count">215</div>
+            <div>
+              <div class="qna-question-text">What did you think of Eric the first time you met him?</div>
+              <div class="qna-question-author">@BaseballBri</div>
+            </div>
+          </li>
+        </ul>
+        <a href="/qna.html" class="btn-primary">Ask a Question</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MERCH DROP ==================== -->
+  <section class="section merch-drop">
+    <div class="container">
+      <div class="merch-drop-layout fade-in">
+        <div class="merch-product-image">
+          <div class="merch-product-placeholder">KJ</div>
+        </div>
+        <div class="merch-drop-info">
+          <div class="section-label"><span class="badge badge-live">Limited Drop</span></div>
+          <h3 class="merch-drop-name">The Origin Hoodie</h3>
+          <div class="merch-drop-price">$59.99</div>
+          <p style="color: var(--color-text-secondary); margin-bottom: 24px;">Premium heavyweight hoodie celebrating the JUCO journey. Limited to 500 pieces. Once they're gone, they're gone.</p>
+          <div class="countdown" id="merchCountdown">
+            <div class="countdown-block">
+              <span class="countdown-value" id="cdDays">02</span>
+              <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-value" id="cdHours">14</span>
+              <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-value" id="cdMins">37</span>
+              <span class="countdown-label">Mins</span>
+            </div>
+            <div class="countdown-block">
+              <span class="countdown-value" id="cdSecs">52</span>
+              <span class="countdown-label">Secs</span>
+            </div>
+          </div>
+          <a href="/merch.html" class="btn-primary">Shop Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PREDICTION LEADERBOARD ==================== -->
+  <section class="section" id="leaderboardSection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <div class="section-label">Prediction Game</div>
+          <h2 class="section-title">Leaderboard</h2>
+        </div>
+        <a href="/predictions.html" class="section-header-link">Full Standings &rarr;</a>
+      </div>
+      <table class="leaderboard-table fade-in">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>User</th>
+            <th style="text-align: right;">Points</th>
+          </tr>
+        </thead>
+        <tbody id="leaderboardBody">
+          <tr>
+            <td class="leaderboard-rank gold">1</td>
+            <td class="leaderboard-user">@BaseballBrainiac</td>
+            <td class="leaderboard-points">1,240</td>
+          </tr>
+          <tr>
+            <td class="leaderboard-rank silver">2</td>
+            <td class="leaderboard-user">@DiamondDave</td>
+            <td class="leaderboard-points">1,180</td>
+          </tr>
+          <tr>
+            <td class="leaderboard-rank bronze">3</td>
+            <td class="leaderboard-user">@JucoLegend</td>
+            <td class="leaderboard-points">1,055</td>
+          </tr>
+          <tr>
+            <td class="leaderboard-rank">4</td>
+            <td class="leaderboard-user">@StatGuru42</td>
+            <td class="leaderboard-points">980</td>
+          </tr>
+          <tr>
+            <td class="leaderboard-rank">5</td>
+            <td class="leaderboard-user">@CrackerJack</td>
+            <td class="leaderboard-points">925</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="text-align: center; margin-top: 32px;" class="fade-in">
+        <a href="/predictions.html" class="btn-secondary">Make Your Predictions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== STORY TEASER ==================== -->
+  <section class="section" id="storySection">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div>
+          <div class="section-label">The Journey</div>
+          <h2 class="section-title">Eric's Story</h2>
+        </div>
+        <a href="/story.html" class="section-header-link">Full Timeline &rarr;</a>
+      </div>
+      <div class="story-teaser-track fade-in">
+        <div class="story-card">
+          <div class="story-card-image"><div class="story-card-year">2017</div></div>
+          <div class="story-card-body">
+            <h3 class="story-card-title">The JUCO Days</h3>
+            <p class="story-card-desc">Where it all started. A walk-on with a dream and a camera.</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-card-image"><div class="story-card-year">2019</div></div>
+          <div class="story-card-body">
+            <h3 class="story-card-title">First Viral Video</h3>
+            <p class="story-card-desc">The bat flip heard around the internet. 10M views overnight.</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-card-image"><div class="story-card-year">2021</div></div>
+          <div class="story-card-body">
+            <h3 class="story-card-title">Meeting Tatis Jr.</h3>
+            <p class="story-card-desc">From DMs to diamond. The collab that changed everything.</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-card-image"><div class="story-card-year">2023</div></div>
+          <div class="story-card-body">
+            <h3 class="story-card-title">1 Million Subs</h3>
+            <p class="story-card-desc">The underdog hit the mountaintop. A million strong.</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-card-image"><div class="story-card-year">2026</div></div>
+          <div class="story-card-body">
+            <h3 class="story-card-title">The Home Base</h3>
+            <p class="story-card-desc">Building something bigger than YouTube. Welcome home.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">King of Juco</div>
+        <p class="footer-brand-desc">The official home of Eric Sim. Baseball entertainment, community, and the underdog story that started it all.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="TikTok">TT</a>
+          <a href="#" aria-label="X / Twitter">X</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Features</div>
+        <a href="/membership.html">Exclusive Content</a>
+        <a href="/challenges.html">Fan Challenges</a>
+        <a href="/qna.html">Player Q&A</a>
+        <a href="/predictions.html">Predictions</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">More</div>
+        <a href="/story.html">Eric's Story</a>
+        <a href="/merch.html">Merch</a>
+        <a href="/account.html">My Account</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Stay Connected</div>
+        <form class="footer-email-form" id="footerEmailForm">
+          <input type="email" placeholder="Your email" required>
+          <button type="submit">Go</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 King of Juco. All rights reserved.</p>
+      <p style="font-size: 12px; color: var(--color-text-muted);">Built with love for the fans.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ==================== AUTH STATE ====================
+    function checkAuth() {
+      const token = localStorage.getItem('koj_token');
+      const name = localStorage.getItem('koj_name');
+      const navAuth = document.getElementById('navAuth');
+      if (token && name) {
+        navAuth.innerHTML = `
+          <a href="/account.html" style="color: var(--color-text-primary); font-weight: 600;">${name}</a>
+          <button onclick="logout()" style="font-size: 13px; color: var(--color-text-muted);">Sign Out</button>
+        `;
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem('koj_token');
+      localStorage.removeItem('koj_name');
+      localStorage.removeItem('koj_email');
+      localStorage.removeItem('koj_userId');
+      window.location.reload();
+    }
+
+    checkAuth();
+
+    // ==================== MOBILE MENU ====================
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileToggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // ==================== EMAIL CAPTURE ====================
+    async function handleEmailSubmit(form, msgEl, source) {
+      const email = form.querySelector('input[type="email"]').value.trim();
+      if (!email) return;
+
+      const btn = form.querySelector('button');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const res = await fetch('/.netlify/functions/subscribe-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source })
+        });
+        const data = await res.json();
+        if (res.ok) {
+          if (msgEl) {
+            msgEl.textContent = "You're in! Check your inbox.";
+            msgEl.className = 'email-form-message success';
+          }
+          form.querySelector('input[type="email"]').value = '';
+        } else {
+          if (msgEl) {
+            msgEl.textContent = data.error || 'Something went wrong.';
+            msgEl.className = 'email-form-message error';
+          }
+        }
+      } catch (err) {
+        if (msgEl) {
+          msgEl.textContent = 'Network error. Try again.';
+          msgEl.className = 'email-form-message error';
+        }
+      }
+
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+
+    document.getElementById('heroEmailForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleEmailSubmit(e.target, document.getElementById('heroEmailMsg'), 'hero_form');
+    });
+
+    document.getElementById('footerEmailForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      handleEmailSubmit(e.target, null, 'footer');
+    });
+
+    // ==================== COUNTDOWN TIMER ====================
+    function updateCountdown() {
+      // Demo countdown — 2 days, 14 hours from now
+      const now = new Date();
+      const target = new Date(now.getTime() + (2 * 24 + 14) * 60 * 60 * 1000);
+      // Store target on first run
+      if (!window._countdownTarget) {
+        window._countdownTarget = target;
+      }
+      const diff = window._countdownTarget - new Date();
+      if (diff <= 0) {
+        document.getElementById('cdDays').textContent = '00';
+        document.getElementById('cdHours').textContent = '00';
+        document.getElementById('cdMins').textContent = '00';
+        document.getElementById('cdSecs').textContent = '00';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
+      document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
+      document.getElementById('cdSecs').textContent = String(secs).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // ==================== SCROLL ANIMATIONS ====================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

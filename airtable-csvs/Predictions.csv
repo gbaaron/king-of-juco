@@ -1,0 +1,20 @@
+PredictionID,User,UserName,Season,PredictionType,TeamOrPlayer,PredictionValue,IsCorrect,PointsAwarded,SubmittedAt,EventID
+PRED-001,jake@example.com,BaseballBrainiac,2026,world_series,San Diego Padres,San Diego Padres,false,0,2026-03-10,2026 World Series Champion
+PRED-002,sarah@example.com,DiamondDave,2026,world_series,Los Angeles Dodgers,Los Angeles Dodgers,false,0,2026-03-08,2026 World Series Champion
+PRED-003,mike@example.com,JucoLegend,2026,world_series,Houston Astros,Houston Astros,false,0,2026-03-09,2026 World Series Champion
+PRED-004,emma@example.com,StatGuru42,2026,world_series,Atlanta Braves,Atlanta Braves,false,0,2026-03-11,2026 World Series Champion
+PRED-005,chris@example.com,CrackerJack,2026,world_series,New York Yankees,New York Yankees,false,0,2026-03-12,2026 World Series Champion
+PRED-006,jake@example.com,BaseballBrainiac,2025,custom,Aaron Judge,Aaron Judge,true,25,2025-09-05,2025 AL Home Run Leader
+PRED-007,sarah@example.com,DiamondDave,2025,custom,Shohei Ohtani,Shohei Ohtani,false,0,2025-09-06,2025 AL Home Run Leader
+PRED-008,mike@example.com,JucoLegend,2025,custom,Aaron Judge,Aaron Judge,true,25,2025-09-04,2025 AL Home Run Leader
+PRED-009,emma@example.com,StatGuru42,2025,custom,Aaron Judge,Aaron Judge,true,25,2025-09-07,2025 AL Home Run Leader
+PRED-010,chris@example.com,CrackerJack,2025,custom,Kyle Schwarber,Kyle Schwarber,false,0,2025-09-08,2025 AL Home Run Leader
+PRED-011,jake@example.com,BaseballBrainiac,2025,world_series,Los Angeles Dodgers,Los Angeles Dodgers,true,100,2025-03-10,2025 World Series Champion
+PRED-012,sarah@example.com,DiamondDave,2025,world_series,Los Angeles Dodgers,Los Angeles Dodgers,true,100,2025-03-08,2025 World Series Champion
+PRED-013,mike@example.com,JucoLegend,2025,world_series,New York Yankees,New York Yankees,false,0,2025-03-09,2025 World Series Champion
+PRED-014,alex@example.com,PowerHitter99,2025,world_series,Los Angeles Dodgers,Los Angeles Dodgers,true,100,2025-03-11,2025 World Series Champion
+PRED-015,tyler@example.com,BatFlipKing,2025,world_series,San Diego Padres,San Diego Padres,false,0,2025-03-07,2025 World Series Champion
+PRED-016,alex@example.com,PowerHitter99,2026,win_total,New York Yankees,95 wins,false,0,2026-03-18,2026 AL East Win Totals
+PRED-017,jordan@example.com,FastFeet42,2026,win_total,Baltimore Orioles,92 wins,false,0,2026-03-19,2026 AL East Win Totals
+PRED-018,tyler@example.com,BatFlipKing,2026,mvp,Aaron Judge,Aaron Judge,false,0,2026-03-20,2026 AL MVP
+PRED-019,maya@example.com,MusicMan,2026,mvp,Julio Rodriguez,Julio Rodriguez,false,0,2026-03-21,2026 AL MVP
