@@ -44,7 +44,7 @@
       {id:'6',productName:'First Edition Hoodie',price:54.99,category:'apparel',stockQuantity:0}
     ];
     function renderProducts(){
-      document.getElementById('productGrid').innerHTML=products.map(p=>`<div class="product-card" onclick="${p.stockQuantity>0?`openOrder('${p.id}')`:''}"><div class="product-card-image"><span class="product-card-placeholder">${p.productName.split(' ').map(w=>w[0]).join('')}</span>${p.stockQuantity===0?'<div class="sold-out-overlay"><span class="sold-out-text">SOLD OUT</span></div>':''}</div><div class="product-card-body"><h3 class="product-card-name">${p.productName}</h3><div class="product-card-price">$${p.price.toFixed(2)}</div><div class="product-card-cat">${p.category.replace('_',' ')}</div></div></div>`).join('');
+      document.getElementById('productGrid').innerHTML=products.map(p=>`<div class="product-card" onclick="${p.stockQuantity>0?`openOrder('${p.id}')`:''}"><div class="product-card-image">${p.thumbnailURL?`<img src="${p.thumbnailURL}" alt="${p.productName}" style="width:100%;height:100%;object-fit:contain">`:`<span class="product-card-placeholder">${p.productName.split(' ').map(w=>w[0]).join('')}</span>`}${p.stockQuantity===0?'<div class="sold-out-overlay"><span class="sold-out-text">SOLD OUT</span></div>':''}</div><div class="product-card-body"><h3 class="product-card-name">${p.productName}</h3><div class="product-card-price">$${p.price.toFixed(2)}</div><div class="product-card-cat">${p.category.replace('_',' ')}</div></div></div>`).join('');
     }
     renderProducts();
 
