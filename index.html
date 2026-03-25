@@ -1153,6 +1153,57 @@
       height: 100%;
       border: 0;
     }
+    .youtube-card-thumb {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+    .youtube-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .youtube-card-thumb .yt-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px;
+      height: 64px;
+      background: rgba(232, 64, 51, 0.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, background 0.3s;
+    }
+    .youtube-card-thumb:hover .yt-play {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: rgba(232, 64, 51, 1);
+    }
+    .youtube-card-thumb .yt-play::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent #fff;
+      margin-left: 4px;
+    }
+    .youtube-card-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 16px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 1px;
+    }
 
     /* ==================== ANIMATED COUNTER ==================== */
     .hero-stat-value {
@@ -1726,7 +1777,7 @@
         const grid = document.getElementById('youtubeGrid');
         if (!grid) return;
         grid.innerHTML = videos.map(v =>
-          `<div class="youtube-card"><iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+          `<div class="youtube-card"><div class="youtube-card-thumb" onclick="this.parentElement.innerHTML='<iframe src=\\'https://www.youtube.com/embed/${v.youtubeId}?autoplay=1\\' title=\\'${v.title}\\' allow=\\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\\' allowfullscreen></iframe>'"><img src="https://img.youtube.com/vi/${v.youtubeId}/hqdefault.jpg" alt="${v.title}" loading="lazy"><div class="yt-play"></div><div class="youtube-card-title">${v.title}</div></div></div>`
         ).join('');
       }
 
