@@ -1316,17 +1316,7 @@
         </div>
         <a href="https://youtube.com/@kingofjuco" target="_blank" class="section-header-link">Subscribe &rarr;</a>
       </div>
-      <div class="youtube-grid fade-in">
-        <div class="youtube-card">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Latest Video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="youtube-card">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Latest Video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-        <div class="youtube-card">
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Latest Video 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-        </div>
-      </div>
+      <div class="youtube-grid fade-in" id="youtubeGrid"></div>
     </div>
   </section>
 
@@ -1723,6 +1713,35 @@
       }
       requestAnimationFrame(update);
     }
+
+    // ==================== YOUTUBE VIDEOS FROM AIRTABLE ====================
+    (function() {
+      const fallbackVideos = [
+        { title: 'Latest Video', youtubeId: 'C4VDgxqWce8' },
+        { title: 'Video 2', youtubeId: 'C4VDgxqWce8' },
+        { title: 'Video 3', youtubeId: 'C4VDgxqWce8' }
+      ];
+
+      function renderVideos(videos) {
+        const grid = document.getElementById('youtubeGrid');
+        if (!grid) return;
+        grid.innerHTML = videos.map(v =>
+          `<div class="youtube-card"><iframe src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
+        ).join('');
+      }
+
+      // Try Airtable first, fall back to hardcoded
+      fetch('/.netlify/functions/get-youtube-videos?limit=3')
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(data => {
+          if (data.videos && data.videos.length > 0) {
+            renderVideos(data.videos);
+          } else {
+            renderVideos(fallbackVideos);
+          }
+        })
+        .catch(() => renderVideos(fallbackVideos));
+    })();
 
     // ==================== AUTH STATE ====================
     function checkAuth() {
